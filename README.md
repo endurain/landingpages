@@ -5,4 +5,4 @@ https://witdelivers.com/marketing-landing-page-assessment-moderate/
 
 https://witdelivers.com/wp-admin/post.php?post=4166&action=edit
 
-I built ACF for them as well for WitDigital's marketing team to use. 
+Included are custom fields.
