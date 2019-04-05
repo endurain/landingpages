@@ -119,13 +119,27 @@
 .spec-bottom-text {
 	padding: 3em 11em;
 }
+.spec-bottom-text h4 {
+  font-weight: 400;
+  line-height: 31px;
+}
 /* balances small coupons in their container */
 .sm-coupon-spacer:nth-child(even) {
 	padding-right: unset;
 }
 @media only screen and (max-width: 768px) {
+  .click-to-call-wrapper {
+    padding: 2em 4em;
+  }
+  .click-to-call {
+    border: 1px solid #fff;
+    border-radius: 9px;
+  }
+  .click-to-call h3 {
+    margin: 21px;
+  }
 	.spec-bottom-text {
-    padding: 4em 5em;
+    padding: 1em 1em;
 }
 	.sm-coupon-spacer {
     width: unset;
@@ -181,11 +195,13 @@
 					<div class="col-md-8">
 					<?php include(TEMPLATEPATH . '/breadcrumbs.php'); ?>
 					 <section id="content" role="main">
+
 						 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
 							<?php the_content(); ?>
+
 								<?php endwhile; else: ?>
-								<h2>Whoops...</h2>
-								<p>Sorry, no posts were found.</p>
+
 						 <?php endif; ?>
 					 </section><!-- end #content -->
 					</div><!--end.col-md-8-->
@@ -193,6 +209,7 @@
 				    <div class="fw-coupon-wrapper">
 							<?php
 								if( have_rows('promotions_coupon_fullwidth') ): ?>
+
 								<?php while ( have_rows('promotions_coupon_fullwidth') ) : the_row(); ?>
 									<div class="coupon-fullwidth">
 										<div class="coupon-col-1">
@@ -220,13 +237,32 @@
 				    </div>
 						<div class="sm-coupon-wrapper">
 							<?php if( have_rows('promotions_coupon_small') ): ?>
-								<?php while ( have_rows('promotions_coupon_small') ) : the_row(); ?>
+								<?php while ( have_rows('promotions_coupon_small') ) : the_row();
+
+                  $tagline = get_sub_field('sm_coupon_tag_line');
+
+
+                  ?>
+
 									<div class="sm-coupon-spacer">
 										<div class="sm-coupon-content">
 											<h1><?php the_sub_field('sm_coupon_h1_text'); ?></h1>
 											<h3><?php the_sub_field('sm_coupon_h3_text'); ?></h3>
-											<p><?php the_sub_field('sm_coupon_tag_line'); ?></p>
+
+                        <?php
+
+                            if( !empty($tagline) ) { ?>
+
+                              <p><?php echo $tagline; ?></p>
+
+                            <?php } else { ?>
+
+                              <div style="height: 15px;">&nbsp</div>
+
+                            <?php } ?>
+
 												<hr>
+
 											<p>Call Us Today!</p>
 											<h2><?php echo $phone ?></h2>
 											<div class="sm-coupon-bottom">
@@ -248,7 +284,8 @@
 									<div class="spec-bottom-text">
 										<h1>We're ready to help!</h1>
 										<h4>Call us now and mention any of these offers for instant savings!</h4>
-										<div class="click-to-call">
+										<div class="click-to-call-wrapper">
+                      <div class="click-to-call">
 											<a style="text-decoration: none;" href="tel:19737288900">
 												<h3>
 													<img src="/wp-content/uploads/2018/12/icon_phone_white.png" />
@@ -256,6 +293,7 @@
 											  </h3>
 										  </a>
 										</div>
+                   </div>
 									</div>
 								</div>
 								</div>
