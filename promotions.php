@@ -5,7 +5,6 @@
  *Version: 1.2
  *Wit Digital 4.3.19
  */
-
  ?>
 
 <style>
