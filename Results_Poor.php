@@ -2,7 +2,6 @@
 
 get_header();?>
 
-
 <body id="page" <?php body_class('mmm'); ?>>
 	<h1 class="mainLandingPageTitle"><?php the_field('main_label'); ?></h1>
 	<div id="wrapper">
